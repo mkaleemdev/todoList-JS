@@ -17,15 +17,24 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8 bg-light p-5 mt-5 rounded">
                     <div class="input-group">
-                        <input type="text" class="form-control" id="input" placeholder="Enter Name" required />
+                        <input type="text" class="form-control" id="input" placeholder="Add a Todo..." required />
+                        <input type="hidden"  id="hiddInput">
                         <button class="btn btn-primary" type="button" id="addButton" onclick="addTodo()">
-                            Button
+                           Add Todo
                         </button>
                     </div>
                 </div>
 
                 <div class="col-lg-8 mt-5">
-                    <ul id="todoItem"></ul>
+                    <div class="row">
+                        <div class="col-md-9">
+                            <p>Total Todo item <button class="btn btn-info text-white" id="todoNumber">0</button></p>
+                        </div>
+                        <div class="col-md-3 text-end">
+                            <input type="search"  class="form-control" placeholder="search">
+                        </div>
+                    </div>
+                    <ul id="todoItem" class="border-top mt-3"></ul>
                 </div>
             </div>
         </div>
