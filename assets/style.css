@@ -16,3 +16,10 @@ ul, li{
     padding: 5px 0;
     align-items: center;
 }
+
+#editMessage{
+    font-size: 13px;
+    margin: 5px;
+    display: block;
+    position: absolute;
+}
