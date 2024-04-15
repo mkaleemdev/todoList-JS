@@ -3,17 +3,20 @@ let addButton = document.querySelector("#addButton");
 let todoItem = document.querySelector("#todoItem");
 let todoNumber = document.querySelector("#todoNumber");
 let hiddInput = document.querySelector("#hiddInput");
+let editMessage = document.querySelector("#editMessage");
 
-let data = JSON.parse(localStorage.getItem("todos")) || [];
+let data = [];
 
-// data = [];
+data = localStorage.getItem("todos")
+  ? JSON.parse(localStorage.getItem("todos"))
+  : [];
 
 // bind data ==================
 const bindData = () => {
   let todolist = "";
 
   data.forEach((item, index) => {
-    todolist += `<li>
+    todolist += `<li class="todoList_li">
                       <div><span class="pe-3">${index + 1}</span>${item}</div>
                       <div>
                           <button class="btn btn-secondary" onclick="editData(${index})"><i class="bi bi-pencil-square"></i></button>
@@ -22,10 +25,10 @@ const bindData = () => {
                  </li>`;
     localStorage.setItem("todos", JSON.stringify(data));
   });
-  todoNumber.innerHTML = data.lenght;
+  todoNumber.innerHTML = data.length;
+
   todoItem.innerHTML = todolist;
 };
-
 bindData();
 
 // add todo data =======
@@ -52,16 +55,31 @@ const addTodo = () => {
   bindData();
 };
 
-// delete todo data =======
+// delete todo data =========
 const delData = (index) => {
   data.splice(index, 1);
   bindData();
 };
 
-// edit todo data ============
+// edit todo data ===========
 const editData = (index) => {
   addButton.innerHTML = "Update";
   input.value = data[index];
   hiddInput.value = index;
 };
 
+// search functionaltiy =========
+const searchFun = () => {
+  let searchInput = document.getElementById("searchInput").value;
+  searchInput = searchInput.toLowerCase();
+  let todoList_li = document.getElementsByClassName("todoList_li");
+  let searchRecord = document.querySelector("#searchRecord");
+
+  for (i = 0; i < todoList_li.length; i++) {
+    if (!todoList_li[i].innerHTML.toLowerCase().includes(searchInput)) {
+      todoList_li[i].style.display = "none";
+    } else {
+      todoList_li[i].style.display = "flex";
+    }
+  }
+};

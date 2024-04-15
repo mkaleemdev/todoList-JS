@@ -33,10 +33,15 @@
                             <p>Total Todo item <button class="btn btn-info text-white" id="todoNumber">0</button></p>
                         </div>
                         <div class="col-xl-3 col-6 text-end">
-                            <input type="search" class="form-control" placeholder="search">
+                            <input type="search" id="searchInput" class="form-control" placeholder="search" onkeyup="searchFun()">
                         </div>
                     </div>
-                    <ul id="todoItem" class="border-top mt-3"></ul>
+
+                    <ul id="todoItem" class="border-top mt-3">
+
+                    </ul>
+                    <p id="searchRecord" class="text-danger"></p>
+
                 </div>
             </div>
         </div>

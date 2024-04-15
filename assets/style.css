@@ -10,7 +10,7 @@ ul, li{
     margin: 0;
 }
 
-#todoItem li{
+.todoList_li{
     display: flex;
     justify-content: space-between;
     padding: 5px 0;
